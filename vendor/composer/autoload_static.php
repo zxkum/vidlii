@@ -10,6 +10,7 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'da253f61703e9c22a5a34f228526f05a' => __DIR__ . '/..' . '/wixel/gump/gump.class.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -22,6 +23,11 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
         ),
         'H' => 
         array (
@@ -35,6 +41,7 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'GUMP\\' => 5,
         ),
         'E' => 
         array (
@@ -54,12 +61,20 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
         ),
         'Http\\Promise\\' => 
         array (
@@ -89,6 +104,10 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'GUMP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wixel/gump/src',
+        ),
         'Elastic\\Transport\\' => 
         array (
             0 => __DIR__ . '/..' . '/elastic/transport/src',
@@ -96,6 +115,16 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
         'Elastic\\Elasticsearch\\' => 
         array (
             0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PhpImap' => 
+            array (
+                0 => __DIR__ . '/..' . '/php-imap/php-imap/src',
+            ),
         ),
     );
 
@@ -109,6 +138,7 @@ class ComposerStaticInit29241a504875eeea9596571eec35413b
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit29241a504875eeea9596571eec35413b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit29241a504875eeea9596571eec35413b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit29241a504875eeea9596571eec35413b::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit29241a504875eeea9596571eec35413b::$classMap;
 
         }, null, ClassLoader::class);
