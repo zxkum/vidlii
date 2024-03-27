@@ -7,7 +7,7 @@
 
         function __construct(bool $Show_Errors = false) {
             try {
-                $this->Connection = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_DATABASE.';charset='.DB_CHARSET, DB_USER, DB_PASSWORD);
+                $this->Connection = new \PDO('mysql:host='.$_ENV["DB_HOST"].';dbname='.$_ENV["DB_DATABASE"].';charset='.$_ENV["DB_CHARSET"], $_ENV["DB_USER"], $_ENV["DB_PASSWORD"]);
                 // $this->Connection->setAttribute(PDO::NULL_TO_STRING);
                 if($Show_Errors||1) $this->Connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
                 return true;

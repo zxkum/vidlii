@@ -2,9 +2,12 @@
     namespace Vidlii\Vidlii;
 
     class Engine {
-        protected $DB, $_USER, $_PAGE, $_GUMP, $_THEMES;
+        public $env, $DB, $_USER, $_PAGE, $_GUMP, $_THEMES; // temporary behavior
         
         function __construct() {
+            // .env
+            $this->env = \Dotenv\Dotenv::createImmutable($_SERVER["DOCUMENT_ROOT"]); $this->env->load();
+
             // CONSTANTS
             define("ROOT_FOLDER", $_SERVER["DOCUMENT_ROOT"]);
 
@@ -12,12 +15,6 @@
             define("ALLOWED_FORMATS", ["FLV", "MP4", "WMV", "AVI", "MOV", "M4V", "MPG", "MPEG", "WEBM", "MOV", "MKV", "3GP"]);
 
             define("ADMIN_PASSWORD", "poops");
-
-            define("DB_HOST", "localhost");
-            define("DB_DATABASE", "vidlii");
-            define("DB_USER", "root");
-            define("DB_PASSWORD", "");
-            define("DB_CHARSET", "latin1");
 
             define("CSS_FILE", "/css/m.css?8");
             define("PROFILE_CSS_FILE", "/css/profile.css?5");
@@ -36,7 +33,7 @@
             $this->DB = new Database(false);
             $this->_USER = new User(NULL, $this->DB, true);
             $this->_PAGE = new Page();
-            $this->_GUMP = new \GUMP();
+            $this->_GUMP = new GUMP();
             $this->_THEMES = new Themes($this->DB, $this->_USER);
         }
 
@@ -90,10 +87,10 @@
             return preg_replace('/(?<!\S)@([0-9a-zA-Z]+)/', '<a href="/user/$1">@$1</a>', $text);
         }
         
-        public function notification($Message,$Redirect,$Color = "red") {
+        public function notification($Message, $Redirect, $Color = "red") {
             $_SESSION["notification"] = $Message;
             $_SESSION["n_color"] = $Color;
-            if($Redirect != false) redirect($Redirect);
+            if($Redirect != false) $this->redirect($Redirect);
         }
         
         public function clean($string) {

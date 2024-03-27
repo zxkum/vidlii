@@ -17,7 +17,7 @@
                 $Shadowbanned,
                 $Header;
 
-        protected $DB;
+        public $DB;
 
 
         function __construct($ID, Database $Database, $re = NULL) {
@@ -28,7 +28,7 @@
 
             if (isset($ID)) {                                                                       //IF ID HAS BEEN SET WHEN CREATING NEW USER CLASS (Means it's not the main Users class)
 
-                $this->username     = (string)clean($ID);
+                $this->username     = (string)$this->clean($ID);
                 $this->logged_in    = false;
 
             } elseif (isset($_SESSION["username"]) && !empty($_SESSION["username"])) {              //IF ID IS NOT SET BUT THE USER ID IS STORED IN $_SESSION (Basically means the user has logged in before)

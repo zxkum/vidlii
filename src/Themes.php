@@ -2,11 +2,7 @@
     namespace Vidlii\Vidlii;
 
 class Themes extends Engine {
-    protected  $Themes = [],
-            $Header = false;                                                    //1 = DEFAULT | 2 = COMPACT | false = NOT SET YET (USED FOR CHECKING IF A THEME ALREADY SET IT OR NOT SO ITS NOT BEING OVERWRITTEN)
-
-    protected $DB,
-            $_USER;
+    public $DB, $_USER, $Themes = [], $Header = false; //1 = DEFAULT | 2 = COMPACT | false = NOT SET YET (USED FOR CHECKING IF A THEME ALREADY SET IT OR NOT SO ITS NOT BEING OVERWRITTEN)
 
 
     public function __construct(Database $DB, User $_USER) {
